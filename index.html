@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyFirst ToDoList</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+        }
+
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            margin: 30px auto;
+            max-width: 80%;
+        }
+
+        .addTask {
+            overflow: hidden;
+            height: 90vh;
+            min-width: 55%;
+            margin-right: 30px;
+            background: linear-gradient(-135deg, #ddd, rgb(240, 212, 212), #eee, rgb(208, 209, 241));
+            border-radius: 15px 15px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80px;
+            background-color: rgb(43, 86, 214);
+        }
+
+        form {
+            display: flex;
+            width: 80%;
+            margin: 10px 0px;
+            text-align: center;
+        }
+
+        .addText {
+            width: 100%;
+            font-size: 22px;
+        }
+
+        .add {
+            padding: 3px;
+            box-shadow: 0 0 3px 2px rgb(114, 142, 235);
+            background-color: rgb(8, 2, 67);
+            font-family: arial;
+            font-size: 18px;
+            color: rgb(234, 236, 242);
+            border: none;
+            cursor: pointer;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            margin: 15px 20px;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            /* po usunięciu tego flexa wszystko jakby działa ok*/
+            margin-top: 3px;
+            font-size: 18px;
+            line-height: 30px;
+            list-style: none;
+            word-wrap: break-word;
+        }
+
+        .buttons {
+            display: inline-block;
+            width: 20%;
+        }
+
+        li button {
+            margin-left: 15px;
+            font-size: 15px;
+            font-family: verdana;
+            font-weight: bolder;
+            border: none;
+            background-color: rgb(104, 87, 255);
+            color: #fff;
+        }
+
+        .check {
+            padding: 2px 4px;
+            border-radius: 3px 3px;
+            text-decoration: none;
+
+        }
+
+        .del {
+            height: 22px;
+            width: 22px;
+            border-radius: 50%;
+        }
+
+
+        span {
+            width: 80%;
+            font-size: 18px;
+            font-family: arial;
+        }
+
+        .done {
+            text-decoration: line-through;
+        }
+
+        /* .label {
+            text-align: left;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="addTask">
+            <div class="header">
+                <form action="">
+                    <input class="addText" type="text">
+                    <button class="add">AddTask</button>
+                </form>
+            </div>
+            <ul></ul>
+        </div>
+        <div class="searchBar">
+            <span>Search Bar: <input class="search" type="text"></span>
+            <h2>Lista zadań do zrobienia: 0</h2>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
