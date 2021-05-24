@@ -29,13 +29,15 @@ const lineThrough = (e) => {
         e.target.dataset.active = 'false';
     }
 }
-const deleteElement = (e) => {
+const deleteElement = ({
+    target
+}) => {
     // e.target.parentNode.remove();
 
-    const index = e.target.parentNode.parentNode.dataset.key;
+    const index = target.parentNode.parentNode.dataset.key;
     liArray.splice(index, 1);
     console.log(liArray)
-    const taskNumbers = [...document.querySelectorAll('.label')];
+    // const taskNumbers = [...document.querySelectorAll('.label')];
     render();
 
 }
@@ -53,8 +55,10 @@ const addTask = (e) => {
     document.querySelectorAll('.del').forEach(item => item.addEventListener('click', deleteElement));
 }
 
-const searchTask = (e) => {
-    const mySearch = e.target.value.toLowerCase();
+const searchTask = ({
+    target
+}) => {
+    const mySearch = target.value.toLowerCase();
     const newArray = liArray.filter(li => li.textContent.toLowerCase().includes(mySearch));
     ul.textContent = "";
     newArray.forEach(li => ul.appendChild(li))
