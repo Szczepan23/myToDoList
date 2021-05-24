@@ -19,7 +19,7 @@ body {
 .addTask {
     overflow: hidden;
     min-height: 90vh;
-    min-width: 55%;
+    width: 55%;
     margin-right: 30px;
     border: 1px solid black;
 
