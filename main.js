@@ -1,7 +1,6 @@
 const inputTask = document.querySelector('form');
 const input = document.querySelector('input');
 const ul = document.querySelector('ul');
-const liList = document.getElementsByClassName('task');
 const taskNumber = document.querySelector("h2");
 const searchInput = document.querySelector(".search")
 const liArray = [];
@@ -15,25 +14,27 @@ const render = () => {
     })
 }
 
-const lineThrough = (e) => {
-    const label = e.target.parentNode.parentNode.querySelector(".label");
-    if (e.target.dataset.active === 'false') {
+const lineThrough = ({
+    target
+}) => {
+    const label = target.parentNode.parentNode.querySelector(".label");
+    if (target.dataset.active === 'false') {
         // e.target.parentNode.style.textDecoration = 'line-through';
         label.classList.add('done');
-        e.target.textContent = 'Done';
-        e.target.dataset.active = 'true';
+        target.parentNode.parentNode.classList.add('darker');
+        target.textContent = 'Done';
+        target.dataset.active = 'true';
     } else {
         // e.target.parentNode.style.textDecoration = 'none';
         label.classList.remove('done');
-        e.target.textContent = 'To Do';
-        e.target.dataset.active = 'false';
+        target.parentNode.parentNode.classList.remove('darker');
+        target.textContent = 'To Do';
+        target.dataset.active = 'false';
     }
 }
 const deleteElement = ({
     target
 }) => {
-    // e.target.parentNode.remove();
-
     const index = target.parentNode.parentNode.dataset.key;
     liArray.splice(index, 1);
     console.log(liArray)

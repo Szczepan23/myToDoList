@@ -6,6 +6,7 @@
 
 body {
     min-height: 100vh;
+
 }
 
 .wrapper {
@@ -17,11 +18,13 @@ body {
 
 .addTask {
     overflow: hidden;
-    height: 90vh;
+    min-height: 90vh;
     min-width: 55%;
     margin-right: 30px;
-    background: linear-gradient(-135deg, #ddd, rgb(240, 212, 212), #eee, rgb(208, 209, 241));
-    border-radius: 15px 15px;
+    border: 1px solid black;
+
+    /* background: linear-gradient(-135deg, #ddd, rgb(240, 212, 212), #eee, rgb(208, 209, 241)); */
+    /* border-radius: 15px 15px; */
 }
 
 .header {
@@ -29,7 +32,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 80px;
-    background-color: rgb(43, 86, 214);
+    background-color: rgb(66, 55, 99);
 }
 
 form {
@@ -42,15 +45,17 @@ form {
 .addText {
     width: 100%;
     font-size: 22px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .add {
+    margin-left: 10px;
     padding: 3px;
-    box-shadow: 0 0 3px 2px rgb(114, 142, 235);
-    background-color: rgb(8, 2, 67);
-    font-family: arial;
+    box-shadow: 0 0 2px 1px rgb(223, 227, 240);
+    background-color: rgb(24, 24, 43);
+    font-family: 'Roboto', sans-serif;
     font-size: 18px;
-    color: rgb(234, 236, 242);
+    color: white;
     border: none;
     cursor: pointer;
 }
@@ -63,14 +68,21 @@ ul {
 
 li {
     display: flex;
+    padding-left: 10px;
+    background: rgba(0, 0, 0, 0.1);
     justify-content: space-between;
     width: 100%;
-    /* po usunięciu tego flexa wszystko jakby działa ok*/
-    margin-top: 3px;
     font-size: 18px;
     line-height: 30px;
     list-style: none;
     word-wrap: break-word;
+    margin: 3px auto
+}
+
+.darker {
+    background: rgba(0, 0, 0, 0.3);
+    /* width: 95%; */
+    transform: scaleX(0.95);
 }
 
 .buttons {
@@ -81,11 +93,11 @@ li {
 li button {
     margin-left: 15px;
     font-size: 15px;
-    font-family: verdana;
-    font-weight: bolder;
+    font-family: 'Roboto', sans-serif;
     border: none;
-    background-color: rgb(104, 87, 255);
+    background-color: rgb(84, 76, 162);
     color: #fff;
+    cursor: pointer;
 }
 
 .check {
@@ -99,13 +111,16 @@ li button {
     height: 22px;
     width: 22px;
     border-radius: 50%;
+    background-color: rgb(242, 72, 72);
+
 }
 
 
 span {
     width: 80%;
     font-size: 18px;
-    font-family: arial;
+    font-family: 'Roboto', sans-serif;
+
 }
 
 .done {
