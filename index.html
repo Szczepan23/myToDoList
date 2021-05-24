@@ -16,8 +16,8 @@
         <div class="addTask">
             <div class="header">
                 <form action="">
-                    <input class="addText" type="text" placeholder="Enter your task">
-                    <button class="add">AddTask</button>
+                    <input class="addText" type="text" onkeyup="stateHandle()" placeholder="Enter your task">
+                    <button class="add" disabled>AddTask</button>
                 </form>
             </div>
             <ul></ul>
@@ -25,7 +25,7 @@
         <footer class="searchBar">
 
             <div>
-                <p>Search Bar: </p><input class="search" type="text">
+                <p>Search Bar: </p><input class="search" type="text" placeholder="Search task">
             </div>
             <h2>Lista zadań do zrobienia: 0</h2>
         </footer>
