@@ -39,9 +39,16 @@ const deleteElement = ({
 
 }
 
+const stateHandle = () => {
+    if (input.value === "") {
+        document.querySelector('.add').disabled = true;
+    } else {
+        document.querySelector('.add').disabled = false;
+    }
+}
+input.addEventListener('change', stateHandle)
 const addTask = (e) => {
     e.preventDefault();
-    if (input.value === "") return;
     const task = document.createElement('li');
     task.className = 'task';
     liArray.push(task);
@@ -50,7 +57,13 @@ const addTask = (e) => {
     render();
     document.querySelectorAll('.check').forEach(item => item.addEventListener('click', lineThrough)); // single 'to do' button
     document.querySelectorAll('.del').forEach(item => item.addEventListener('click', deleteElement));
+    document.querySelector('.add').disabled = true;
 }
+
+
+
+
+
 
 const searchTask = ({
     target
