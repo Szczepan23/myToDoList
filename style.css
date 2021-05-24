@@ -11,7 +11,8 @@ body {
 
 .wrapper {
     height: 100%;
-    max-width: 80%;
+    width: 100%;
+    max-width: 1200px;
     display: flex;
     flex-direction: column;
     margin: 30px auto;
@@ -31,7 +32,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 12vh;
+    height: 80px;
     background-color: rgb(66, 55, 99);
 }
 
@@ -41,8 +42,9 @@ form {
 }
 
 .addText {
+    padding: 0.3rem 0.55rem;
     width: 100%;
-    font-size: 22px;
+    font-size: 18px;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -58,12 +60,14 @@ form {
     cursor: pointer;
 }
 
+.add.opa {
+    opacity: 0.5;
+}
+
 ul {
-    height: 70%;
     padding: 15px 20px;
     display: flex;
     flex-direction: column;
-    /* margin: 15px 20px; */
 }
 
 li {
@@ -80,13 +84,12 @@ li {
     margin: 10px auto
 }
 
-.darker {
+li.darker {
     background: rgba(0, 0, 0, 0.3);
     transform: scaleX(0.95);
 }
 
 .buttons {
-    display: inline-block;
     width: 20%;
 }
 
@@ -100,27 +103,23 @@ li button {
     cursor: pointer;
 }
 
-.check {
+.checkBtn {
     padding: 0.3rem 0.55rem;
     border-radius: 3px 3px;
     text-decoration: none;
-
 }
 
-.del {
+.delBtn {
     height: 22px;
     width: 22px;
     border-radius: 50%;
     background-color: rgb(242, 72, 72);
-
 }
 
-
-span {
+.label {
     width: 80%;
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
-
 }
 
 .done {
@@ -128,32 +127,33 @@ span {
 }
 
 footer {
+    height: 80px;
     align-self: center;
     display: flex;
     width: 55%;
-    padding: 0.5rem 0.75rem;
     background-color: rgb(66, 55, 99);
     color: white;
 }
 
-footer div {
-    font-family: 'Roboto', sans-serif;
-    width: 100%;
+.searchBar {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 80%;
     height: 50%;
     align-self: center;
-
 }
 
-footer div p {
-    display: inline;
-    font-size: 20px;
-}
-
-footer div input {
-    font-size: 18px;
-}
-
-h2 {
+.search {
     font-family: 'Roboto', sans-serif;
+    width: 50%;
+    padding: 0.3rem 0.55rem;
     font-size: 18px;
+}
+
+.taskNum {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    align-self: center;
+    letter-spacing: 1px;
 }
