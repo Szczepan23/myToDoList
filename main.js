@@ -19,13 +19,11 @@ const lineThrough = ({
 }) => {
     const label = target.parentNode.parentNode.querySelector(".label");
     if (target.dataset.active === 'false') {
-        // e.target.parentNode.style.textDecoration = 'line-through';
         label.classList.add('done');
         target.parentNode.parentNode.classList.add('darker');
         target.textContent = 'Done';
         target.dataset.active = 'true';
     } else {
-        // e.target.parentNode.style.textDecoration = 'none';
         label.classList.remove('done');
         target.parentNode.parentNode.classList.remove('darker');
         target.textContent = 'To Do';
@@ -37,8 +35,6 @@ const deleteElement = ({
 }) => {
     const index = target.parentNode.parentNode.dataset.key;
     liArray.splice(index, 1);
-    console.log(liArray)
-    // const taskNumbers = [...document.querySelectorAll('.label')];
     render();
 
 }
