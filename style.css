@@ -36,9 +36,8 @@ body {
 }
 
 form {
+    width: 80%;
     display: flex;
-    margin: 10px 0px;
-    text-align: center;
 }
 
 .addText {
