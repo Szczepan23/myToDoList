@@ -21,12 +21,12 @@ const lineThrough = ({
     if (target.dataset.active === 'false') {
         label.classList.add('done');
         target.parentNode.parentNode.classList.add('darker');
-        target.textContent = 'Done';
+        target.textContent = 'To Do';
         target.dataset.active = 'true';
     } else {
         label.classList.remove('done');
         target.parentNode.parentNode.classList.remove('darker');
-        target.textContent = 'To Do';
+        target.textContent = 'Done';
         target.dataset.active = 'false';
     }
 }
@@ -45,7 +45,7 @@ const addTask = (e) => {
     const task = document.createElement('li');
     task.className = 'task';
     liArray.push(task);
-    task.innerHTML = `<span class="label">${input.value}</span><div class="buttons"><button data-active="false" class="check">To Do</button><button class="del">X</button><div>`;
+    task.innerHTML = `<span class="label">${input.value}</span><div class="buttons"><button data-active="false" class="check">Done</button><button class="del">&#10005</button><div>`;
     input.value = ''; // clean input
     render();
     document.querySelectorAll('.check').forEach(item => item.addEventListener('click', lineThrough)); // single 'to do' button
