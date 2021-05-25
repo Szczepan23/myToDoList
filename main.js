@@ -27,7 +27,7 @@ const lineThrough = ({
         target.dataset.active = 'true';
     } else {
         label.classList.remove('done');
-        target.parentNode.parentNode.classList.remove('darker');
+        target.closest('li').classList.remove('darker');
         target.textContent = 'Done';
         target.dataset.active = 'false';
     }
@@ -51,7 +51,6 @@ const stateHandle = () => {
 }
 
 const addTask = (e) => {
-
     e.preventDefault();
     const task = document.createElement('li');
     task.className = 'task';
@@ -61,9 +60,10 @@ const addTask = (e) => {
     render();
     document.querySelectorAll('.checkBtn').forEach(item => item.addEventListener('click', lineThrough)); // single 'to do' button
     document.querySelectorAll('.delBtn').forEach(item => item.addEventListener('click', deleteElement));
-
 }
-
+const addTaskMobile = () => {
+    stateHandle();
+}
 
 const searchTask = (e) => {
     const mySearch = e.target.value.toLowerCase();
@@ -73,4 +73,5 @@ const searchTask = (e) => {
 }
 input.addEventListener('change', stateHandle);
 inputTask.addEventListener('submit', addTask);
+btnAdd.addEventListener('touchstart', addTaskMobile);
 searchInput.addEventListener('input', searchTask);
