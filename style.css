@@ -11,7 +11,6 @@ body {
 
 .wrapper {
     height: 100%;
-    width: 100%;
     max-width: 1200px;
     display: flex;
     flex-direction: column;
@@ -24,7 +23,7 @@ body {
     align-self: center;
     background-color: #fff;
     min-height: 80vh;
-    width: 55%;
+    width: 100%;
 
 }
 
@@ -65,13 +64,15 @@ form {
 }
 
 ul {
-    padding: 15px 20px;
+    margin: 0 auto;
     display: flex;
+    width: 85%;
+    padding: 30px 20px;
     flex-direction: column;
 }
 
 li {
-    padding: 5px 6px;
+    padding: 0.3rem 0.55rem;
     display: flex;
     padding-left: 10px;
     background: rgba(0, 0, 0, 0.1);
@@ -90,7 +91,7 @@ li.darker {
 }
 
 .buttons {
-    width: 20%;
+    margin-right: 15px;
 }
 
 li button {
@@ -130,7 +131,7 @@ footer {
     height: 80px;
     align-self: center;
     display: flex;
-    width: 55%;
+    width: 100%;
     background-color: rgb(66, 55, 99);
     color: white;
 }
@@ -140,15 +141,14 @@ footer {
     justify-content: space-between;
     margin: 0 auto;
     width: 80%;
-    height: 50%;
     align-self: center;
 }
 
 .search {
-    font-family: 'Roboto', sans-serif;
     width: 50%;
     padding: 0.3rem 0.55rem;
     font-size: 18px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .taskNum {

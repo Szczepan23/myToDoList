@@ -5,6 +5,7 @@ const taskNumber = document.querySelector("h2");
 const searchInput = document.querySelector(".search")
 const btnAdd = document.querySelector('.add')
 const liArray = [];
+const spanArray = [];
 
 const render = () => {
     ul.textContent = "";
@@ -34,7 +35,7 @@ const lineThrough = ({
 const deleteElement = ({
     target
 }) => {
-    const index = target.parentNode.parentNode.dataset.key;
+    const index = target.closest('li').dataset.key;
     liArray.splice(index, 1);
     render();
 }
@@ -50,6 +51,7 @@ const stateHandle = () => {
 }
 
 const addTask = (e) => {
+
     e.preventDefault();
     const task = document.createElement('li');
     task.className = 'task';
@@ -59,11 +61,13 @@ const addTask = (e) => {
     render();
     document.querySelectorAll('.checkBtn').forEach(item => item.addEventListener('click', lineThrough)); // single 'to do' button
     document.querySelectorAll('.delBtn').forEach(item => item.addEventListener('click', deleteElement));
+
 }
+
 
 const searchTask = (e) => {
     const mySearch = e.target.value.toLowerCase();
-    const newArray = liArray.filter(li => li.textContent.toLowerCase().includes(mySearch));
+    const newArray = liArray.filter(li => li.textContent.replace('Done', '').replace('To Do', '').toLowerCase().includes(mySearch));
     ul.textContent = "";
     newArray.forEach(li => ul.appendChild(li));
 }
