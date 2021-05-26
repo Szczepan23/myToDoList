@@ -57,14 +57,14 @@ const addTask = (e) => {
     liArray.push(task);
     task.innerHTML = `<span class="label">${input.value}</span><div class="buttons"><button data-active="false" class="checkBtn">Done</button><button class="delBtn">&#10005</button><div>`;
     input.value = ''; // clean input
+    // btnAdd.disabled = true;
+    // btnAdd.classList.add('opa');
+    stateHandle();
     render();
     document.querySelectorAll('.checkBtn').forEach(item => item.addEventListener('click', lineThrough)); // single 'to do' button
     document.querySelectorAll('.delBtn').forEach(item => item.addEventListener('click', deleteElement));
-}
-const addTaskMobile = () => {
-    stateHandle();
-}
 
+}
 const searchTask = (e) => {
     const mySearch = e.target.value.toLowerCase();
     const newArray = liArray.filter(li => li.textContent.replace('Done', '').replace('To Do', '').toLowerCase().includes(mySearch));
@@ -73,5 +73,4 @@ const searchTask = (e) => {
 }
 input.addEventListener('change', stateHandle);
 inputTask.addEventListener('submit', addTask);
-btnAdd.addEventListener('touchstart', addTaskMobile);
 searchInput.addEventListener('input', searchTask);
