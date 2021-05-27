@@ -5,7 +5,7 @@ const taskNumber = document.querySelector("h2");
 const searchInput = document.querySelector(".search")
 const btnAdd = document.querySelector('.add')
 const liArray = [];
-const spanArray = [];
+const mapArray = [];
 
 const render = () => {
     ul.textContent = "";
@@ -32,39 +32,49 @@ const lineThrough = ({
         target.dataset.active = 'false';
     }
 }
-const deleteElement = ({
-    target
-}) => {
-    const index = target.closest('li').dataset.key;
+const deleteElement = (e) => {
+    const index = e.target.closest('li').dataset.key;
     liArray.splice(index, 1);
     render();
+
 }
 
 const stateHandle = () => {
-    if (input.value === "") {
-        btnAdd.disabled = true;
-        btnAdd.classList.add('opa');
-    } else {
-        btnAdd.disabled = false;
-        btnAdd.classList.remove('opa');
+    // if (input.value === "") {
+    //     btnAdd.disabled = true;
+    // } else {
+    //     btnAdd.disabled = false;
+    // }
+    /* rozwiązanie wyżej dłuższe, to samo osiągam zapisem poniżej */
+    btnAdd.disabled = input.value === "";
+}
+const checkDuplicats = () => {
+    const mapArray = liArray.map(li => li.textContent.slice(0, -5))
+    const findDuplicates = arr => arr.filter((item, index) => mapArray.indexOf(item) !== index)
+    const duplicates = findDuplicates(mapArray);
+    // console.log(duplicates);
+    if (duplicates.length > 0) {
+        alert("You Have Entered This Task Before")
+        liArray.pop();
+        render();
     }
 }
 
 const addTask = (e) => {
     e.preventDefault();
+
     const task = document.createElement('li');
     task.className = 'task';
     liArray.push(task);
     task.innerHTML = `<span class="label">${input.value}</span><div class="buttons"><button data-active="false" class="checkBtn">Done</button><button class="delBtn">&#10005</button><div>`;
-    input.value = ''; // clean input
-    // btnAdd.disabled = true;
-    // btnAdd.classList.add('opa');
     stateHandle();
     render();
-    document.querySelectorAll('.checkBtn').forEach(item => item.addEventListener('click', lineThrough)); // single 'to do' button
+    checkDuplicats();
+    document.querySelectorAll('.checkBtn').forEach(item => item.addEventListener('click', lineThrough));
     document.querySelectorAll('.delBtn').forEach(item => item.addEventListener('click', deleteElement));
-
+    input.value = ''; // clean input
 }
+
 const searchTask = (e) => {
     const mySearch = e.target.value.toLowerCase();
     const newArray = liArray.filter(li => li.textContent.replace('Done', '').replace('To Do', '').toLowerCase().includes(mySearch));

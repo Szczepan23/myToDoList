@@ -56,7 +56,7 @@ form {
     cursor: pointer;
 }
 
-.add.opa {
+.add:disabled {
     opacity: 0.5;
 }
 
