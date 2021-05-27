@@ -50,9 +50,8 @@ const stateHandle = () => {
 }
 const checkDuplicats = () => {
     const mapArray = liArray.map(li => li.textContent.slice(0, -5))
-    const findDuplicates = arr => arr.filter((item, index) => mapArray.indexOf(item) !== index)
+    const findDuplicates = arr => arr.filter((item, index) => arr.indexOf(item.toLowerCase()) !== index)
     const duplicates = findDuplicates(mapArray);
-    // console.log(duplicates);
     if (duplicates.length > 0) {
         alert("You Have Entered This Task Before")
         liArray.pop();
