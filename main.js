@@ -5,7 +5,7 @@ const taskNumber = document.querySelector("h2");
 const searchInput = document.querySelector(".search")
 const btnAdd = document.querySelector('.add')
 const liArray = [];
-const mapArray = [];
+// const mapArray = [];
 
 const render = () => {
     ul.textContent = "";
@@ -32,11 +32,12 @@ const lineThrough = ({
         target.dataset.active = 'false';
     }
 }
-const deleteElement = (e) => {
-    const index = e.target.closest('li').dataset.key;
+const deleteElement = ({
+    target
+}) => {
+    const index = target.closest('li').dataset.key;
     liArray.splice(index, 1);
     render();
-
 }
 
 const stateHandle = () => {
@@ -49,11 +50,11 @@ const stateHandle = () => {
     btnAdd.disabled = input.value === "";
 }
 const checkDuplicats = () => {
-    const mapArray = liArray.map(li => li.textContent.slice(0, -5))
+    const mapArray = liArray.map(li => li.textContent.toLowerCase().slice(0, -5))
     const findDuplicates = arr => arr.filter((item, index) => arr.indexOf(item.toLowerCase()) !== index)
     const duplicates = findDuplicates(mapArray);
     if (duplicates.length > 0) {
-        alert("You Have Entered This Task Before")
+        alert("You Have Entered This Task Before");
         liArray.pop();
         render();
     }
@@ -61,7 +62,6 @@ const checkDuplicats = () => {
 
 const addTask = (e) => {
     e.preventDefault();
-
     const task = document.createElement('li');
     task.className = 'task';
     liArray.push(task);
