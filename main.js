@@ -5,7 +5,6 @@ const taskNumber = document.querySelector("h2");
 const searchInput = document.querySelector(".search")
 const btnAdd = document.querySelector('.add')
 const liArray = [];
-// const mapArray = [];
 
 const render = () => {
     ul.textContent = "";
