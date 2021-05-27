@@ -49,7 +49,8 @@ const stateHandle = () => {
     btnAdd.disabled = input.value === "";
 }
 const checkDuplicats = () => {
-    const mapArray = liArray.map(li => li.textContent.toLowerCase().slice(0, -5))
+    const mapArray = liArray.map(li => li.childNodes[0].textContent.replace(/\s+/g, '').toLowerCase())
+    // const mapArray = liArray.map(li => console.log(li.childNodes[0].textContent))
     const findDuplicates = arr => arr.filter((item, index) => arr.indexOf(item.toLowerCase()) !== index)
     const duplicates = findDuplicates(mapArray);
     if (duplicates.length > 0) {
@@ -75,7 +76,7 @@ const addTask = (e) => {
 
 const searchTask = (e) => {
     const mySearch = e.target.value.toLowerCase();
-    const newArray = liArray.filter(li => li.textContent.replace('Done', '').replace('To Do', '').toLowerCase().includes(mySearch));
+    const newArray = liArray.filter(li => li.childNodes[0].textContent.toLowerCase().includes(mySearch));
     ul.textContent = "";
     newArray.forEach(li => ul.appendChild(li));
 }
